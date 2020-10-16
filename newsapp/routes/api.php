@@ -24,6 +24,8 @@ Route::group(['prefix' => 'v1'],function () {
     Route::post('register','Api\AuthController@register')->name('api.auth.login');
     Route::post('logout','Api\AuthController@logout')->name('api.auth.logout');
     Route::get('news','Api\ArticlesController@list');
+
+    Route::get('favorites/{favorite}','Api\FavoriteController@show'); 
     Route::get('favorites','Api\FavoriteController@index'); 
 
     // Route::get('test', function() {

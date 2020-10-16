@@ -18,5 +18,7 @@ class FavoriteController extends Controller
         return $favorites;
     }
 
-
+    public function show(Favorite $favorite){
+        return $favorite;
+    }
 }
