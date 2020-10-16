@@ -21,4 +21,20 @@ class FavoriteController extends Controller
     public function show(Favorite $favorite){
         return $favorite;
     }
+
+    public function store(Request $request){
+        Favorite::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'image' => $request->urlToImage,
+            'url' => $request->url,
+            'author' => $request->author,
+            'published_at' => $request->publishedAt,
+
+        ]);
+    }
+
+    public function destroy(Favorite $favorite){
+        return Favorite::destroy($favorite);
+    }
 }

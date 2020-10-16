@@ -27,6 +27,10 @@ Route::group(['prefix' => 'v1'],function () {
 
     Route::get('favorites/{favorite}','Api\FavoriteController@show'); 
     Route::get('favorites','Api\FavoriteController@index'); 
+    Route::post('favorites/{favorite}','Api\FavoriteController@store');
+    Route::delete('favorites/{favorite}','Api\FavoriteController@destroy'); 
+
+
 
     // Route::get('test', function() {
     //     return 1;
