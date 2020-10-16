@@ -1,0 +1,12 @@
+/newsapp/node_modules
+/newsapp/public/hot
+/newsapp/public/storage
+/newsapp/storage/*.key
+/newsapp/vendor
+.env
+.env.backup
+newsapp/.phpunit.result.cache
+newsapp/Homestead.json
+newsapp/Homestead.yaml
+newsapp/npm-debug.log
+newsapp/yarn-error.log
