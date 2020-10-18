@@ -1,10 +1,5 @@
 <template>
     <div>
-        <!-- <h2>Articles</h2>
-        <div class="card card-body mb-2" v-for='article in articles' :key="article.id">
-            <h3>{{ article.title }}</h3>
-        </div> -->
-
         <div class="row" >
             <div class="col-sm-6 col-md-4" v-for='article in articles' :key="article.id">
                 <div class="thumbnail">
@@ -29,28 +24,6 @@
 
 <script>
 export default {
-    data() {
-        return {
-            articles: [],
-            article: {
-                id: "",
-                title: "",
-                description: "",
-                url: "",
-                urlToImage: ""
-            },
-            article_id: ""
-        };
-    },
-    created() {
-        this.fetchNews();
-    },
-    methods: {
-        fetchNews() {
-            axios.get("api/v1/news").then(res => {
-                this.articles = res.data;
-            });
-        }
-    }
+   props: ['articles']
 };
 </script>
