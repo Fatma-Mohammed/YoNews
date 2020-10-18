@@ -21,6 +21,7 @@ import router from './router';
 Vue.component('Navbar', require('./components/Navbar.vue').default);
 Vue.component('Articles', require('./components/Articles.vue').default);
 Vue.component('mainapp', require('./components/MainApp.vue').default);
+Vue.component('Hero', require('./components/Hero.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
