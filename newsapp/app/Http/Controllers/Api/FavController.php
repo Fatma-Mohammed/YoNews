@@ -42,8 +42,9 @@ class FavController extends Controller
 
     }
 
-    public function destroy(Favorite $favorite){
-        return Favorite::destroy($favorite);
+    public function destroy($favorite){
+        return Favorite::findOrFail($favorite)->delete();
+        
     }
 
 }
