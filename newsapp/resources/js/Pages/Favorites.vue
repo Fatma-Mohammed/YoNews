@@ -13,7 +13,7 @@
                                 <div class="position-relative">
                                     <div class="rotate-img">
                                         <img
-                                            :src="article.urlToImage"
+                                            :src="article.image"
                                             alt="thumb"
                                             class="img-fluid"
                                         />
@@ -39,6 +39,14 @@
                                 <p class="mb-0">
                                     {{ article.description }}
                                 </p>
+
+                                <button
+                                    class="btn btn-primary mt-4"
+                                    v-if="user != undefined"
+                                    @click="remove(article)"
+                                >
+                                    Remove
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -67,6 +75,14 @@ export default {
 
                 this.articles = res.data;
                 console.log(res.data);
+            });
+        },
+        remove(article){
+                axios.delete('/api/v1/fav-articles/'+article.id).then(res => {
+                console.log(res.data);
+                if(res.data == 1) {
+                    this.articles = this.articles.filter(fav => fav.id != article.id);
+                }
             });
         }
     }
