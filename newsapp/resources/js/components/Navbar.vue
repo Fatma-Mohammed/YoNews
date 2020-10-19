@@ -40,6 +40,11 @@
                                 Favorites
                             </router-link>
                         </li>
+                        <li class="nav-item" v-if="this.user != undefined">
+                            <a href="/" class="nav-link" @click="this.signOut(this.user)">
+                                Sign out 
+                            </a>
+                        </li>
  
                         <li class="nav-item" v-if="this.user == undefined">
                             <router-link to="/login" class="nav-link">
@@ -62,6 +67,13 @@
 export default {
     props: [
         "user"
-    ]
+    ],
+    methods: {
+        signOut(user){
+            axios.delete("/api/v1/logout",user).then(response => {
+                console.log(response);
+            })
+        }
+    }
 }
 </script>
