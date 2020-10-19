@@ -64,7 +64,7 @@ export default {
             ],
     methods: {
             favorite(article) {
-            axios.post('api/v1/fav-articles',article).then(res => {
+            axios.post('api/v1/fav-articles',{article: article, user: this.user}).then(res => {
 
                 
             });
