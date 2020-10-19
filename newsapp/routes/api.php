@@ -25,21 +25,6 @@ Route::group(['prefix' => 'v1'],function () {
     Route::post('logout','Api\AuthController@logout')->name('api.auth.logout');
     Route::get('news','Api\ArticlesController@list');
 
-    Route::get('favorites/{favorite}','Api\FavoriteController@show'); 
-    Route::get('favorites','Api\FavoriteController@index'); 
-    Route::post('favorites/{favorite}','Api\FavoriteController@store');
-    Route::delete('favorites/{favorite}','Api\FavoriteController@destroy'); 
-
-
-
-    // Route::get('test', function() {
-    //     return 1;
-    
-    // })->middleware('auth:sanctum');
-
-    // Route::get('test2', function() {
-    //     return 2;
-    
-    // });
+    Route::apiResource('fav-articles','Api\FavController');
 });
 
