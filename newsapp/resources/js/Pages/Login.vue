@@ -60,11 +60,12 @@ export default {
         handleLogin() {
             axios.get("/sanctum/csrf-cookie").then(response => {
                 axios.post("api/v1/login", this.formData).then(response => {
-                    // console.log(response);
-                    if(response.code  == 201){
+                    console.log(response);
+                    if(response.status  == 201){
                         this.user =response.data.user;
                         this.getFavorites();
-                    }else if(response.code ==401){
+                        this.$router.push('/');
+                    }else if(response.status ==401){
                         this.errors.push("Invalid credentials");
                     }
                     
