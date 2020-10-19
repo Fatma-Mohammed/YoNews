@@ -13,7 +13,7 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->middleware('throttle:4');
+        // $this->middleware('throttle:4');
         $this->middleware(['auth:sanctum'])->only(['logout']);
 
     }
@@ -45,30 +45,22 @@ class AuthController extends Controller
         $request->validate([
             'email'       => 'required|email',
             'password'    => 'required',
-            'device_name' => 'required',
         ]);
 
         $user = User::where('email', $request->email)->first();
         
         //check user password 
-        if (!$user || !\Hash::check($request->password, $user->password)) {
-            dd('test');
-            throw ValidationException::withMessages([
-                'email' => ['The provided credentials are incorrect.'],
-            ]);
-        }
+    
+        if (\Auth::attempt($request->only('email', 'password'))) { 
+            // Authentication passed... 
+            return response(auth()->user(),201);
+         }
+         else{
+             return response('Invalid data',401);
+         }
         
-        //check if the user does not has a saved token create one 
-        $token = $user->tokens()->where('name', $request->device_name)->first();
-		if (!$token)
-			return $user->createToken($request->device_name)->plainTextToken;
-        //update existing token
-		$token->update([
-			'token' => hash('sha256', $plainTextToken = \Str::random(80))
-		]);
-
-		return $plainTextToken;
         
+            
     }
 
 
