@@ -1,15 +1,21 @@
 <template>
     <div>
     <header id="header">
-        <Navbar @chCountry="this.changeCountry"></Navbar>
+        <Navbar @chCountry="this.changeCountry" :user="this.user"></Navbar>
     </header>
-    <Hero></Hero>
-    <Articles :articles="this.articles"></Articles>
-    <!-- <router-view></router-view> -->
+    <div class="content-wrapper">
+    <!-- <Hero></Hero>
+    
+    <Articles :articles="this.articles"></Articles> -->
+    <router-view :articles="this.articles" :user="this.user"></router-view>
+    </div>
     </div>
 </template>
 <script>
  export default {
+    props:[
+        "user"
+    ],
      data() {
         return {
             articles: [],
@@ -48,5 +54,6 @@
             this.fetchNews();
         }
     }
+    
  }
 </script>

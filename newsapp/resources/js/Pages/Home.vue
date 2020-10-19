@@ -1,14 +1,14 @@
 <template>
     <div class="content-wrapper">
         <Hero></Hero>
-        <Articles :articles="this.articles"></Articles>
+        <Articles :articles="this.articles" :user="this.user"></Articles>
     </div>
 </template>
 
 <script>
 
 export default {
-    props: ["articles"]
+    props: ["articles","user",]
 };
 
 </script>
