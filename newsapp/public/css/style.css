@@ -8,7 +8,7 @@ header .navbar-bottom{
 
 #navbar-brand{
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 20px;
     color: #fff;
     font-weight: 600;
     font-stretch: normal;
@@ -40,4 +40,29 @@ header .navbar-bottom{
 
 .hero{
     height: 100%;
+}
+
+.navbar-top-right-menu .nav-item .nav-link {
+    font-size: 16px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    position: relative;
+    padding: 3px 12px;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.navbar-top-right-menu .nav-item .nav-link::after {
+    content: "";
+    width: 1px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.29);
+    position: absolute;
+    right: 0;
 }
