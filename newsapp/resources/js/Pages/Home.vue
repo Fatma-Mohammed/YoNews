@@ -1,5 +1,5 @@
 <template>
-    <div class="content-wrapper">
+    <div >
         <Hero></Hero>
         <Articles :articles="this.articles" :user="this.user"></Articles>
     </div>

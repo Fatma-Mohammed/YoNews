@@ -1,5 +1,4 @@
 <template>
-    <div class="content-wrapper">
         <div class="container">
             <div class="row aos-init aos-animate" data-aos="fade-up">
                 <div class="col-xl-8 stretch-card grid-margin">
@@ -101,5 +100,4 @@
                 </div>
             </div>
         </div>
-    </div>
 </template>
