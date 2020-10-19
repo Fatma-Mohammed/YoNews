@@ -64,7 +64,7 @@ export default {
                     if(response.status  == 201){
                         this.user =response.data.user;
                         this.getFavorites();
-                        this.$router.push('/');
+                        window.location.href='/';
                     }else if(response.status ==401){
                         this.errors.push("Invalid credentials");
                     }
