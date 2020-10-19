@@ -31,21 +31,23 @@
                         </ul>
                         <li class="nav-item" v-if="this.user != undefined">
                             <router-link to="/login" class="nav-link">
-                                {{this.user.name}}
+                                {{ this.user.name }}
                             </router-link>
                         </li>
 
                         <li class="nav-item" v-if="this.user != undefined">
-                            <router-link to="/Favorites" class="nav-link" :user="this.user">
+                            <router-link
+                                to="/Favorites"
+                                class="nav-link"
+                                :user="this.user"
+                            >
                                 Favorites
                             </router-link>
                         </li>
                         <li class="nav-item" v-if="this.user != undefined">
-                            <a href="/" class="nav-link" @click="this.signOut(this.user)">
-                                Sign out 
-                            </a>
+                           <a  class="nav-link"@click="this.signOut">Logout</a>
                         </li>
- 
+
                         <li class="nav-item" v-if="this.user == undefined">
                             <router-link to="/login" class="nav-link">
                                 Login
@@ -65,15 +67,14 @@
 
 <script>
 export default {
-    props: [
-        "user"
-    ],
+    props: ["user"],
     methods: {
-        signOut(user){
-            axios.delete("/api/v1/logout",user).then(response => {
-                console.log(response);
-            })
+        signOut(user) {
+            axios.post("/api/v1/logout", user).then(response => {
+                document.location.href = "/"; 
+            });
+      
         }
     }
-}
+};
 </script>
