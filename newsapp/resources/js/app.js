@@ -22,7 +22,8 @@ Vue.component('Navbar', require('./components/Navbar.vue').default);
 Vue.component('Articles', require('./components/Articles.vue').default);
 Vue.component('mainapp', require('./components/MainApp.vue').default);
 Vue.component('Hero', require('./components/Hero.vue').default);
-
+Vue.component('Home', require('./Pages/Home.vue').default);
+Vue.component('Login',require('./Pages/Login.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
