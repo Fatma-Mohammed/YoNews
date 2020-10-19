@@ -41,7 +41,7 @@
                             type="date"
                             name="birth"
                             class="form-control"
-                            v-model="formData.name"
+                            v-model="formData.birth"
                             placeholder="Name"
                         />
                     </div>

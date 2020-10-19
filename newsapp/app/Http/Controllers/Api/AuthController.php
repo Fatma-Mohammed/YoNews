@@ -23,6 +23,7 @@ class AuthController extends Controller
         $validatedData = $request->validate([
             'name'     => ['required', 'string'],
             'email'    => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'birth'    => ['required', 'date'],
         ]);
 
         $password = \Str::random(8);
@@ -30,6 +31,7 @@ class AuthController extends Controller
         $createdUser = User::create([
             'name'     => $validatedData['name'],
             'email'    => $validatedData['email'],
+            'birth_date'=> $validatedData['birth'],
             'password' => \Hash::make($password),
         ]);
 
